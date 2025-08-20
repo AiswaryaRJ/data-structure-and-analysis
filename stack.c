@@ -2,12 +2,12 @@
 #define MAX 20
 int stack[MAX];
 int top=-1;
-
 int isFull(){
 	return top== MAX-1;
 }
 int isEmpty(){
-	return top==-1;}
+	return top==-1;
+	}
 void push(int value){
 if(isFull()){
 	printf("stack overflow\n");}
@@ -19,6 +19,8 @@ if(isEmpty()){
 	printf("stack underflow\n");
 	return -1;}
 else{
+	int t=stack[top--];
+	printf("the popped element is %d \n",t);
 	return stack[top--];}}
 int peek(){
 if(isEmpty()){
@@ -26,7 +28,6 @@ if(isEmpty()){
 	return -1;}
 else{
 return stack[top];}}
-
 int main()
 {
 int choice,item,n,i,j,m;
@@ -46,19 +47,21 @@ switch(choice){
   break;
  case 2:
   pop();
-  printf("the popped element is %d \n",item);
   break;
  case 3:
   peek();
   printf("the element is %d \n",item);
   break;
  case 4:
-  isEmpty();
-  printf("the stack is empty %d \n",item);
+  if(isEmpty())
+  printf("stack empty\n");
+  else
+  printf("stack not empty\n");
   break;
  case 5:
-  isFull();
-  printf("the stack is full %d \n",item);
+  if(isFull())
+  printf("stack full\n");
+  else
+  printf("the stack not full  \n");
   break;
-  }
-  }}
+  }}}
